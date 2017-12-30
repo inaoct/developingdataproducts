@@ -1,0 +1,12 @@
+name: SATScoreApp
+title: SATScoreApp
+username:
+account: inaoct
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 251405
+bundleId: 1156227
+url: https://inaoct.shinyapps.io/SATScoreApp/
+when: 1514666883.5331
+asMultiple: FALSE
+asStatic: FALSE
