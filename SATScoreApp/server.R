@@ -27,12 +27,10 @@ library(scales)
 
 collegeData <- read.table(
     "./collegeData400.csv",
-
     sep = ",", header = TRUE, comment.char = "", quote = "\"")
 
 collegeMapData <-
     dplyr::select(collegeData, INSTNM, CITY, STABBR, INSTURL, SATMTMID,
-
         SATVRMID, SATWRMID, C150_4_POOLED_SUPP, lat, lng) %>%
     dplyr::mutate(UnivName = as.character(INSTNM),
         City = as.character(CITY),
