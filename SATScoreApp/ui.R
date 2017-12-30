@@ -16,7 +16,6 @@ library(leaflet)
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
     
-    
     titlePanel("College Choices Based on SAT Scores"),
     sidebarLayout(
         sidebarPanel(
@@ -25,6 +24,7 @@ shinyUI(fluidPage(
             sliderInput("sliderWRITING", "What is Your Writing SAT Score?", 400, 800, value = 500)
         ),
         
+
         mainPanel(tabsetPanel(type = "tabs",
             tabPanel("College Map", br(),
                 textOutput("out1"),

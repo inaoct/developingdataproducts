@@ -7,9 +7,18 @@
 #    http://shiny.rstudio.com/
 #
 
+<<<<<<< HEAD
 ## Handle library pre-requisites
 if(!require(shiny)) install.packages("shiny", repos = "http://cran.us.r-project.org")
 library(shiny)
+=======
+
+if(!require(shiny)) install.packages("shiny", repos = "http://cran.us.r-project.org")
+library(shiny)
+#library(shiny)
+
+## Handle library pre-requisites
+>>>>>>> 859cdb7c951336b937c1a2dab5265887264ca83d
 # Using dplyr for its more intuitive data frame processing
 if(!require(dplyr)) install.packages("dplyr", repos = "http://cran.us.r-project.org")
 library(dplyr)
@@ -19,17 +28,27 @@ library(ggmap)
 # Using leaflet for map-based visualizations
 if(!require(leaflet)) install.packages("leaflet", repos = "http://cran.us.r-project.org")
 library(leaflet)
+<<<<<<< HEAD
 # Using scales for percentage formatting
 if(!require(scales)) install.packages("scales", repos = "http://cran.us.r-project.org")
 library(scales)
 
 collegeData <- read.table(
     "./collegeData400.csv",
+=======
+
+collegeData <- read.table(
+    "~/developingdataproducts/FirstShinyApp/collegeData400.csv",
+>>>>>>> 859cdb7c951336b937c1a2dab5265887264ca83d
     sep = ",", header = TRUE, comment.char = "", quote = "\"")
 
 collegeMapData <-
     dplyr::select(collegeData, INSTNM, CITY, STABBR, INSTURL, SATMTMID,
+<<<<<<< HEAD
         SATVRMID, SATWRMID, C150_4_POOLED_SUPP, lat, lng) %>%
+=======
+        SATVRMID, SATWRMID, lat, lng) %>%
+>>>>>>> 859cdb7c951336b937c1a2dab5265887264ca83d
     dplyr::mutate(UnivName = as.character(INSTNM),
         City = as.character(CITY),
         State = as.character(STABBR),
@@ -38,6 +57,7 @@ collegeMapData <-
         # final html doc
         MedianMathSAT = suppressWarnings(as.numeric(as.character(SATMTMID))),
         MedianVerbalSAT = suppressWarnings(as.numeric(as.character(SATVRMID))),
+<<<<<<< HEAD
         MedianWritingSAT = suppressWarnings(as.numeric(as.character(SATWRMID))),
         CompletionRate = suppressWarnings(as.numeric(as.character(C150_4_POOLED_SUPP)))
     )
@@ -48,6 +68,11 @@ lm.fitB <- lm(CompletionRate ~ MedianWritingSAT, data = collegeMapData)
 
 lm.fitC <- lm(CompletionRate ~ MedianMathSAT + 
         MedianWritingSAT, data = collegeMapData)
+=======
+        MedianWritingSAT = suppressWarnings(as.numeric(as.character(SATWRMID)))
+    )
+
+>>>>>>> 859cdb7c951336b937c1a2dab5265887264ca83d
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
@@ -168,6 +193,5 @@ shinyServer(function(input, output) {
     output$predC <- renderText({
         percent(modelPredC())
     })
-    
     
 })
